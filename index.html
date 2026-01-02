@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lost?</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        * {
+            box-sizing: border-box;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        }
+
+        body {
+            margin: 0;
+            height: 100vh;
+            background: linear-gradient(135deg, #0f0f0f, #1a1a1a);
+            color: #eaeaea;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .container {
+            text-align: center;
+            max-width: 600px;
+            padding: 40px;
+            border-radius: 16px;
+            background: rgba(255, 255, 255, 0.04);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+            z-index: 2;
+        }
+
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+        }
+
+        p {
+            opacity: 0.75;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+
+        .links {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        a {
+            cursor: pointer;
+            text-decoration: none;
+            padding: 14px 20px;
+            border-radius: 10px;
+            background: linear-gradient(135deg, #2a2a2a, #1f1f1f);
+            color: #ffffff;
+            font-weight: 600;
+            transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        a:hover {
+            transform: translateY(-2px);
+            background: linear-gradient(135deg, #3a3a3a, #2a2a2a);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .emoji {
+            font-size: 2rem;
+            margin-bottom: 10px;
+            opacity: 0.8;
+        }
+
+        /* Fade overlay */
+        .fade {
+            position: fixed;
+            inset: 0;
+            background: black;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.6s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10;
+        }
+
+        .fade.active {
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        .redirecting {
+            color: white;
+            font-size: 1.4rem;
+            opacity: 0.8;
+            letter-spacing: 1px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>You seem lost.</h1>
+        <p>
+            If you were looking for something important, this probably isn’t it.<br>
+            If you weren’t, impressive dedication.
+	    (more are coming soon)
+        </p>
+
+        <div class="links">
+            <a data-url="https://filenfolder.github.io/Terminal/">
+                CCIV Downloader
+            </a>
+            <a data-url="https://filenfolder.github.io/TSM/">
+                The Show Maker (not mine)
+            </a>
+	
+        </div>
+    </div>
+
+    <div class="fade" id="fade">
+        <div class="redirecting">Redirecting...</div>
+    </div>
+
+    <script>
+        const fade = document.getElementById("fade");
+
+        document.querySelectorAll("a[data-url]").forEach(link => {
+            link.addEventListener("click", () => {
+                const url = link.getAttribute("data-url");
+                fade.classList.add("active");
+
+                setTimeout(() => {
+                    window.location.href = url;
+                }, 1200);
+            });
+        });
+    </script>
+
+</body>
+</html>
