@@ -148,3 +148,111 @@ a:focus-visible,
     scroll-behavior: auto;
   }
 }
+
+
+/* ==========================================================
+   Centered layout
+   Applies to every page that loads additions.css.
+   ========================================================== */
+
+/* Header: logo above, links below, both centered */
+header nav {
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  text-align: center;
+}
+.nav-links {
+  justify-content: center;
+  flex-wrap: wrap;
+  padding-left: 0;
+}
+
+/* Section headings and hero: single centered column */
+.section-header,
+.hero {
+  text-align: center;
+}
+.hero-grid {
+  grid-template-columns: 1fr;
+  justify-items: center;
+  gap: 2.5rem;
+}
+.hero p,
+.section-header p {
+  margin-left: auto;
+  margin-right: auto;
+}
+.hero-card {
+  width: 100%;
+  max-width: 640px;
+  text-align: center;
+}
+
+/* Rows of buttons, tags and skills */
+.hero-buttons,
+.tags,
+.skills {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.6rem;
+}
+
+/* Long-form text keeps a readable width but sits in the middle */
+.prose {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+/* Cards, stats, process steps, team members */
+.card,
+.card-content,
+.stat,
+.process-list li,
+.member,
+.member-content {
+  text-align: center;
+}
+.card-content .tags,
+.member-content .skills {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+.card-image {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+.grid,
+.team,
+.stats,
+.process-list {
+  justify-content: center;
+  justify-items: stretch;
+}
+.team {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Contact panel */
+.contact-panel {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+/* Footer: stacked and centered */
+.footer-content {
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 1rem;
+}
+.footer-links {
+  justify-content: center;
+}
