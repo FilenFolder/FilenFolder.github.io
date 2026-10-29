@@ -256,3 +256,39 @@ header nav {
 .footer-links {
   justify-content: center;
 }
+
+
+/* ==========================================================
+   Homepage hero stays left-aligned
+   #about only exists on the homepage hero, so the credits and
+   profile pages keep the centered layout above.
+   ========================================================== */
+#about,
+#about .hero-grid > div,
+#about .hero-card {
+  text-align: left;
+}
+#about .hero-grid {
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+  justify-items: stretch;
+  align-items: center;
+  gap: 3rem;
+}
+#about .hero-grid p {
+  margin-left: 0;
+  margin-right: 0;
+}
+#about .hero-card {
+  max-width: none;
+}
+#about .hero-buttons,
+#about .tags {
+  justify-content: flex-start;
+}
+
+@media (max-width: 860px) {
+  #about .hero-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+}
